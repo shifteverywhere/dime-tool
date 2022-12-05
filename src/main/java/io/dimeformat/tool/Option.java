@@ -29,13 +29,16 @@ public class Option {
     public static final String KEY          = "--key";
 
     public static final String LEGACY       = "--legacy";
+    public static final String MIM          = "--mim";
     public static final String MTD          = "--mtd";
     public static final String OUT          = "--out";
+    public static final String PAYLOAD      = "--payload";
     public static final String REQUIRE_CAP  = "--requirecap";
     public static final String SET_DATE     = "--setdate";
     public static final String SUB          = "--sub";
     public static final String SUITES       = "--suites";
     public static final String SYS          = "--sys";
+    public static final String TYPE         = "--type";
     public static final String VERIFIER     = "--verifier";
     public static final String VERSION      = "--version";
 
