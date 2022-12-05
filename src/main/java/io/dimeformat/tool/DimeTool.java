@@ -17,9 +17,9 @@ public class DimeTool {
     ///// PUBLIC /////
 
     public static final String TOOL_NAME = "DimeTool";
-    public static final String TOOL_VERSION = "0.5";
+    public static final String TOOL_VERSION = "0.6";
 
-    public static final String DIME_VERSION = "1.2.1";
+    public static final String DIME_VERSION = "1.2.4";
 
     /// Contractors ///
 
