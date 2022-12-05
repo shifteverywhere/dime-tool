@@ -135,6 +135,7 @@ public class DimeTool {
         Operation.registerOperation(VerifyOperation.NAME, VerifyOperation.class);
         Operation.registerOperation(ThumbprintOperation.NAME, ThumbprintOperation.class);
         Operation.registerOperation(CreateOperation.NAME, CreateOperation.class);
+        Operation.registerOperation(SignOperation.NAME, SignOperation.class);
     }
 
     public static void main(String[] args) {
