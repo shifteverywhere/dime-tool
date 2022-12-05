@@ -13,6 +13,8 @@ import io.dimeformat.Dime;
 import io.dimeformat.Identity;
 import io.dimeformat.Item;
 import io.dimeformat.Key;
+import io.dimeformat.keyring.IntegrityState;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,16 +54,6 @@ public class VerifyOperation extends Operation {
             DimeTool.showErrorMessage(this, "Missing required option: " + Option.VERIFIER + ".", true);
             return null;
         }
-        Item verifier = Item.importFromEncoded(encodedVerifier);
-        Key verifyingKey;
-        if (verifier instanceof Key) {
-            verifyingKey = (Key) verifier;
-        } else if (verifier instanceof Identity) {
-            verifyingKey = ((Identity) verifier).getPublicKey();
-        } else {
-            DimeTool.showErrorMessage(this, "Unsupported Dime item: " + Option.VERIFIER + ".", true);
-            return null;
-        }
         Instant overrideTime = arguments.getInstant(Option.SET_DATE);
         if (overrideTime != null) {
             Dime.setOverrideTime(overrideTime);
@@ -70,8 +62,18 @@ public class VerifyOperation extends Operation {
         if (gracePeriod != 0L) {
             Dime.setGracePeriod(gracePeriod);
         }
-        item.verify(verifyingKey);
-        return null;
+        IntegrityState state;
+        Item verifier = Item.importFromEncoded(encodedVerifier);
+        Key verifyingKey;
+        if (verifier instanceof Key) {
+            state = item.verify((Key) verifier);
+        } else if (verifier instanceof Identity) {
+            state = item.verify((Identity) verifier);
+        } else {
+            DimeTool.showErrorMessage(this, "Unsupported Dime item: " + Option.VERIFIER + ".", true);
+            return null;
+        }
+        return state.toString();
     }
 
 }
