@@ -128,11 +128,12 @@ public class DimeTool {
     ///// MAIN /////
 
     public static void registerOperations() {
-        Operation.registerOperation("key", KeyOperation.class);
-        Operation.registerOperation("iir", IirOperation.class);
-        Operation.registerOperation("self", IssueOperation.class);
-        Operation.registerOperation("issue", IssueOperation.class);
-        Operation.registerOperation("verify", VerifyOperation.class);
+        Operation.registerOperation(KeyOperation.NAME, KeyOperation.class);
+        Operation.registerOperation(IirOperation.NAME, IirOperation.class);
+        Operation.registerOperation(IssueOperation.SELF_NAME, IssueOperation.class);
+        Operation.registerOperation(IssueOperation.ISSUE_NAME, IssueOperation.class);
+        Operation.registerOperation(VerifyOperation.NAME, VerifyOperation.class);
+        Operation.registerOperation(ThumbprintOperation.NAME, ThumbprintOperation.class);
     }
 
     public static void main(String[] args) {
